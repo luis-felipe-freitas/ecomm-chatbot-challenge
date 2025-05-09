@@ -68,3 +68,14 @@ curl -X POST http://localhost:8000/chat/ \
   -H "Content-Type: application/json" \
   -d '{"message":"What’s the status of my order?", "customer_id":37077}'
 ```
+## 🔍 Product Search Microservice (Upgraded with Real RAG)
+
+This service now uses **true Retrieval-Augmented Generation (RAG)** powered by semantic embeddings.
+
+- **Model**: `all-MiniLM-L6-v2` from `sentence-transformers`
+- **Search engine**: `FAISS` for fast vector similarity lookup
+- **Data source**: `Product_Information_Dataset.csv`, using the `title` and `description` columns
+
+### Example usage:
+```bash
+curl "http://localhost:8001/search/?query=guitar strings"
